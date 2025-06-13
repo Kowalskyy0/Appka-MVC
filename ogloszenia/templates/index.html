@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ogłoszenix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #eef2f6; }
+        header { 
+            background: linear-gradient(135deg, #4a90e2, #003366);
+            color: #fff;
+            padding: 1.5rem 1rem;
+        }
+        .header-container { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .site-title { font-size: 2rem; margin: 0; }
+        nav .nav-btn { font-weight: 500; text-transform: uppercase; margin-left: 1rem; }
+
+        #user-status { font-weight: 500; }
+        main { background: #fff; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 2rem auto; max-width: 1000px; }
+        #announcements-list .announcement { margin-bottom: 1.5rem; }
+        footer { background: #003366; color: #fff; text-align: center; padding: 1rem; position: relative; }
+
+        #sidebar {
+            float: left;
+            width: 20%;
+            padding: 1rem;
+            background: var(--bg-light);
+        }
+        #content {
+            margin-left: 0%;
+            padding: 1rem;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        #sidebar li { margin-bottom: 0.5rem; }
+        #sidebar a { text-decoration: none; color: var(--text-dark); }
+
+
+        .announcement-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 4px;
+            background: var(--white);
+        }
+        .announcement-content { flex: 1; }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="site-title">Ogłoszenix</h1>
+            <nav class="main-nav">
+                <span id="user-status" class="nav-btn"></span>
+                <a href="#" id="auth-toggle" class="nav-btn">Login / Register</a>
+                <a href="#" id="logout-btn" class="nav-btn" style="display:none;">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="auth-panel" class="auth-panel hidden">
+        <div class="auth-tabs">
+            <button id="login-tab" class="active">Login</button>
+            <button id="register-tab">Register</button>
+        </div>
+        <div class="auth-content">
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="auth-submit">Login</button>
+            </form>
+            <form id="register-form" class="hidden">
+                <input type="text" id="reg-username" placeholder="Username" required>
+                <input type="password" id="reg-password" placeholder="Password" required>
+                <button type="submit" class="auth-submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <main style="display: flex; gap: 1rem;">
+        <aside id="sidebar">
+            <h2>Kategorie</h2>
+            <ul>
+                <li><a href="#" data-category="1">1. Wszystkie</a></li>
+                <li><a href="#" data-category="2">2. Elektronika</a></li>
+                <li><a href="#" data-category="3">3. Motoryzacja</a></li>
+                <li><a href="#" data-category="4">4. Nieruchomości</a></li>
+                <li><a href="#" data-category="5">5. Moda</a></li>
+                <li><a href="#" data-category="6">6. Dom i ogród</a></li>
+                <li><a href="#" data-category="7">7. Sport i rekreacja</a></li>
+                <li><a href="#" data-category="8">8. Praca</a></li>
+                <li><a href="#" data-category="9">9. Zwierzęta</a></li>
+                <li><a href="#" data-category="10">10. Inne</a></li>
+            </ul>
+        </aside>
+        <div id="content">
+            <section id="announcements" class="section-box">
+                <h2 class="section-title">Ogłoszenia</h2>
+                <div id="announcements-list"></div>
+            </section>
+            <section id="new-announcement" class="section-box" style="display:none;">
+                <h2 class="section-title">Dodaj Ogłoszenie</h2>
+                <form id="announcement-form" enctype="multipart/form-data">
+                    <input type="text" id="title" name="title" placeholder="Tytuł" required>
+                    <textarea id="description" name="description" placeholder="Opis" required></textarea>
+                    <input type="number" id="price" name="price" placeholder="Cena (PLN)" step="0.01" required>
+                    <select id="category" name="category">
+                        <option value="1">1. Wszystkie</option>
+                        <option value="2">2. Elektronika</option>
+                        <option value="3">3. Motoryzacja</option>
+                        <option value="4">4. Nieruchomości</option>
+                        <option value="5">5. Moda</option>
+                        <option value="6">6. Dom i ogród</option>
+                        <option value="7">7. Sport i rekreacja</option>
+                        <option value="8">8. Praca</option>
+                        <option value="9">9. Zwierzęta</option>
+                        <option value="10">10. Inne</option>
+                    </select>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <button type="submit" class="form-btn">Dodaj</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Ogłoszenix. All rights reserved.</p>
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

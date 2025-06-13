@@ -1,0 +1,239 @@
+:root {
+  --primary: #4a90e2;
+  --primary-dark: #003366;
+  --accent: #e94e77;
+  --bg-light: #f0f2f5;
+  --text-dark: #333;
+  --white: #fff;
+  --error-bg: #f8d7da;
+  --error-text: #842029;
+  --success-bg: #d1e7dd;
+  --success-text: #0f5132;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+#sidebar {
+    flex: 0 0 22%;
+    padding: 1rem;
+    background: var(--bg-light);
+}
+
+#content {
+    flex: 1;
+    padding: 1rem;
+
+}
+header {
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    padding: 1rem 0;
+}
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-title {
+    margin: 0;
+}
+.main-nav .nav-btn {
+    color: var(--white);
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-panel {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 280px;
+    background: var(--white);
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    padding: 1rem;
+    z-index: 100;
+}
+.auth-panel.hidden {
+    display: none;
+}
+.auth-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+.auth-tabs button {
+    flex: 1;
+    padding: 0.5rem;
+    background: var(--bg-light);
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.auth-tabs button.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+.auth-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.auth-submit {
+    background: var(--primary);
+    border: none;
+    padding: 0.5rem;
+    color: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.auth-submit:hover {
+    background: var(--primary-dark);
+}
+
+main {
+    max-width: 2000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 1rem;
+}
+.section-box {
+    margin-bottom: 2rem;
+}
+.section-title {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.form-btn {
+    padding: 0.75rem;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.form-btn:hover {
+    background: var(--primary-dark);
+}
+.announcement-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+    background: var(--white);
+    margin-bottom: 1rem;
+}
+.announcement-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin-left: 500px;
+}
+ .announcement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.announcement, .admin-announcement, .announcement-box {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background: var(--white);
+}
+.announcement-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.announcement-meta {
+    font-style: italic;
+}
+.announcement-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+}
+.announcement-actions {
+    display: flex;
+    gap: 0.3rem;
+}
+.red-btn {
+    background: var(--accent);
+}
+.red-btn:hover {
+    background: #c93062;
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--success-bg);
+    color: var(--success-text);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #badbcc;
+    border-radius: 4px;
+    z-index: 1000;
+}
+.message.error {
+    background: var(--error-bg);
+    color: var(--error-text);
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: var(--primary-dark);
+    color: var(--white);
+}
